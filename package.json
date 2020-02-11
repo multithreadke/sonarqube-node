@@ -10,16 +10,13 @@
     "app-root-path": "^3.0.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
-    "ejs": "~2.6.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "mongoose": "^5.8.11",
     "morgan": "~1.9.1",
     "response-time": "^2.3.2",
-    "simple-node-logger": "^18.12.24",
     "sonarqube-scanner": "^2.5.0",
     "uuid": "^3.4.0",
-    "winston": "^3.2.1",
-    "winston-daily-rotate-file": "^4.4.2"
+    "winston": "^3.2.1"
   }
 }
