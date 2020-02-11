@@ -1,26 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var winston = require("../config/winston");
+var winston = require('../config/winston');
 var uuid = require('uuid');
+var splunk = require('../config/splunk');
+var userService = require('../service/userService');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.json({
-    user: 'Enrique Cherry'
-  });
-    winston.log("info", "STK-Push initiated successfully", {
-      TimeStamp: Date.now(),
-      TransactionID: uuid.v1(),
-      TransactionType: "QueryBalance",
-      Action: "some-value",
-      Response: "Success",
-      ResponseTime: res.get('X-Response-Time'),
-      ResponseCode: "200",
-      SourceSystem: "XXXX",
-      TargetSystem: "STKPUSH",
-      ErrorDescription: "DS",
-      Extradata1: "aeiou",
-      Extradata2: "abcde"
-    });
-});
+router.get('/', userService.findAll);
+router.get('/:userId', userService.findOne);
+router.post('/create', userService.create);
+router.put('/update/:userId', userService.update);
+router.delete('/delete', userService.delete);
 module.exports = router;
